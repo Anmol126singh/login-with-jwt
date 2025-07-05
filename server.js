@@ -13,6 +13,13 @@ mongo.connect(process.env.url)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
+app.get('/', (req, res) => {
+  res.send(`
+    <h1>Welcome to the API</h1>
+    <p>Try <a href="/api/users/register">Register</a> or <a href="/api/users/login">Login</a></p>
+  `);
+});
+
 
 
 app.use('/api/users',auth);
